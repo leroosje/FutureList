@@ -1,0 +1,28 @@
+class purchaseArrayList{
+        private ArrayList<newPurchase> purchaseHolder = new ArrayList<newPurchase>();
+        
+        public void addPurchase(String item, String store, double price, Date date){
+            purchase purchase  = new purchase();
+            purchase.setItem(item);
+            purchase.setStore(store);
+            purchase.setPrice(price);
+            purchase.setDate(date);
+            
+            purchaseHolder.add(purchase);
+        }
+        
+        //Need to overload addPurchase for combinations of input
+        
+        public ArrayList getPurchase(String item, String store, double price, Date date){
+            ArrayList<purchase> foundPurchase = new ArrayList<purchase>();
+            int i = 0;
+            while(i < purchaseHolder.size()){
+                if(purchaseHolder.get(i).getItem().equals(item) && purchaseHolder.get(i).getStore().equals(store) && purchaseHolder.get(i).getPrice == price && purchaseHolder.get(i).getDate() == date){
+                    foundPurchase.add(purchaseHolder.get(i));
+                }
+            }
+            return foundPurchase;
+        }
+        
+        //Need to overload getPurchase for combinations of input
+  }
