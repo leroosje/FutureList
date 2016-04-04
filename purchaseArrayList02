@@ -1,0 +1,33 @@
+
+import java.util.ArrayList;
+import java.util.Date;
+
+class purchaseArrayList {
+
+    private ArrayList<Purchase> purchaseHolder = new ArrayList<Purchase>();
+
+    //Takes 5 parameters and adds a purchase those values
+    //If not all 5 parameters are present through GUI then go to default values
+    //Default for price - 
+    public void addPurchase(String item, StoreName store, double price, Date date, PurchaseCatagory catagory) {
+        Purchase newPurchase = new Purchase();
+        newPurchase.setItemName(item);
+        newPurchase.setStoreName(store);
+        newPurchase.setItemPrice(price);
+        newPurchase.setPurchaseDate(date);
+        newPurchase.setPurchaseCategory(catagory);
+
+        purchaseHolder.add(newPurchase);
+    }
+
+    public ArrayList getPurchase(String item, StoreName store, double price, Date date, PurchaseCatagory catagory) {
+        ArrayList<Purchase> foundPurchase = new ArrayList<Purchase>();
+        int i = 0;
+        while (i < purchaseHolder.size()) {
+            if (purchaseHolder.get(i).getItemName().equals(item) && purchaseHolder.get(i).getStoreName() == store && purchaseHolder.get(i).getItemPrice == price && purchaseHolder.get(i).getPurchaseDate() == date && purchaseHolder.get(i).getPurchaseCatagory() == catagory) {
+                foundPurchase.add(purchaseHolder.get(i));
+            }
+        }
+        return foundPurchase;
+    }
+}
