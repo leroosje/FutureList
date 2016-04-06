@@ -39,7 +39,7 @@ class purchaseArrayList {
             if ((purchaseHolder.get(i).getItemName().equals(item) || isItemName == false) && + 
                 (purchaseHolder.get(i).getStoreName() == store || isStoreName == false) && +
                 (purchaseHolder.get(i).getItemPrice == price || isPrice == false) && +
-                ((purchaseHolder.get(i).getPurchaseDate() >= startDate && isEndDate = false) || (isStartDate = false && purchaseHolder.get(i).getPurchaseDate() <= endDate) || (purchaseHolder.get(i).getPurchaseDate() >= startDate && purchaseHolder.get(i).getPurchaseDate() <= endDate)) && +
+                ((purchaseHolder.get(i).getPurchaseDate().isAfter(startDate) && isEndDate = false) || (isStartDate = false && purchaseHolder.get(i).getPurchaseDate().isBefore(endDate) || (purchaseHolder.get(i).getPurchaseDate().isAfter(startDate) && purchaseHolder.get(i).getPurchaseDate().isBefore(endDate))) && +
                 (purchaseHolder.get(i).getPurchaseCatagory() == catagory || isCatagory == false)) {
                 foundPurchase.add(purchaseHolder.get(i));
             }
